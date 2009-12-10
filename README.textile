@@ -1,0 +1,49 @@
+h1. Unmaintained Drupal Modules
+
+Provided by "webschuur.com":http://webschuur.com
+Developed by Bèr Kessels
+
+Unmaintained modules are just that: modules I wrote for a specific project, 
+client or fun, but without the intention of maintaining. 
+But I do love Open Source, and I like to share my work, I just don't have the 
+time, money and interest in maintaining hundreds of modules. 
+
+h2. Usage
+
+At your own risk. They may not work. Actually: they probably won't work right 
+out of the box. 
+
+You *will* need to read the code, know your PHP and Drupal development. You
+will need to take great care with your database. And you should always test
+first.
+
+Actually, nothing new, or different from any other Drupal module.
+
+h2. Conventions
+
+Modules in the 5.x branch, if they have one, *may* work 
+
+h2. Mission, philosophy
+
+Any maintainer will recognise those highly annoying, or demanding support requests
+
+??"MODULE not works. I NEED HELP, else my project wil FAIL!!!!!!"??
+
+Or all those lost hours at night upgrading a module you no longer use, to a newly
+Drupal version. Evaluating clumsy patches, 
+
+Obviously there is great reward in a properly maintained module, when receiving 
+those version upgrades from someone who also uses your module. Suggestions to
+improve a module, to speed it up, patches to improve documentation and so forth.
+In other words: to maintain a successfull project!
+
+For the less successfull, there is, I believe, still a market. Another developer
+may need parts of your code. Or may need your custom module as a basis for her 
+own custom module. 
+Sharing that work, is also valuable. 
+
+It may end up in someones hands, who has more time and dedication to maintain it
+and make it a great project. 
+
+In the mean time, maintaining less module, frees my hands to maintain the few with
+more dedication and on a more regular basis.
