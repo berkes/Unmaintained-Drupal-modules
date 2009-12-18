@@ -1,0 +1,6 @@
+; $Id$
+name = iDEAL payment credits
+description = use ideal_payment_api to buy credits for node_creation_credits module
+core = 6.x
+dependencies[] = ideal_payment_api
+dependencies[] = node_creation_credits

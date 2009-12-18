@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/webschuur_idb/!svn/ver/7/trunk/sites/all/modules/ideal_payment_credits
+END
+ideal_payment_credits.info
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/webschuur_idb/!svn/ver/7/trunk/sites/all/modules/ideal_payment_credits/ideal_payment_credits.info
+END
+CHANGELOG.txt
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/webschuur_idb/!svn/ver/9/trunk/sites/all/modules/ideal_payment_credits/CHANGELOG.txt
+END
+ideal_payment_credits.admin.inc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/webschuur_idb/!svn/ver/9/trunk/sites/all/modules/ideal_payment_credits/ideal_payment_credits.admin.inc
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/webschuur_idb/!svn/ver/7/trunk/sites/all/modules/ideal_payment_credits/README.txt
+END
+ideal_payment_credits.module
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/webschuur_idb/!svn/ver/15/trunk/sites/all/modules/ideal_payment_credits/ideal_payment_credits.module
+END
+ideal_payment_credits.install
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/webschuur_idb/!svn/ver/9/trunk/sites/all/modules/ideal_payment_credits/ideal_payment_credits.install
+END

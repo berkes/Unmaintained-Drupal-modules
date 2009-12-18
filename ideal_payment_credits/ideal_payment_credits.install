@@ -1,0 +1,68 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Only users with credits can create certain nodes.
+ * @author Bèr Kessels <ber@webschuuur.com>
+ * @link http://webschuur.cp,
+ * @package node_creation_credits
+ */
+
+/**
+ * Implementation of hook_schema().
+ */
+function ideal_payment_credits_schema() {
+  $schema = array();
+
+  $schema['ideal_payment_credits_orders'] = array(
+    'description' => t('Contains the orders for payments.'),
+    'fields' => array(
+      'id' => array(
+        'description' => t('Primary identifier.'),
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE),
+      'users_uid' => array(
+        'description' => t('Foreign key to the users table. Users uid.'),
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0),
+      'amount' => array(
+        'description' => t('Contains the amount of credits that were ordered.'),
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => FALSE,
+        'default' => 0),
+      'price' => array(
+        'description' => t('Contains the total price for the ordered credits.'),
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => FALSE,
+        'default' => 0),
+      'created_at' => array(
+        'description' => t('The Unix timestamp when the row was created.'),
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0),
+      'updated_at' => array(
+        'description' => t('The Unix timestamp when the row was updated.'),
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0),
+    ),
+    'indexes' => array(
+      'users_uid' => array('users_uid'),
+    ),
+    'primary key' => array('id'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function ideal_payment_credits_install() {
+  drupal_install_schema('ideal_payment_credits');
+}
