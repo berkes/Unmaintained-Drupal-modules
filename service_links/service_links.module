@@ -128,6 +128,42 @@ function service_links_admin_settings() {
     '#default_value' => variable_get('service_links_show_yahoo', 0),
   );
 
+  $form['what_links_to_show_nl'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('What NL bookmark links to show'),
+  );
+
+  $form['what_links_to_show_nl']['service_links_show_nujij'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show Nujij (NL) link'),
+    '#return_value' => 1,
+    '#default_value' => variable_get('service_links_show_nujij', 0),
+  );
+  $form['what_links_to_show_nl']['service_links_show_msnreporter'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show MSN Reporter (NL) link'),
+    '#return_value' => 1,
+    '#default_value' => variable_get('service_links_show_msnreporter', 0),
+  );
+  $form['what_links_to_show_nl']['service_links_show_ekudos'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show Ekudos (NL) link'),
+    '#return_value' => 1,
+    '#default_value' => variable_get('service_links_show_ekudos', 0),
+  );
+  $form['what_links_to_show_nl']['service_links_show_favr'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show Favr (NL) link'),
+    '#return_value' => 1,
+    '#default_value' => variable_get('service_links_show_favr', 0),
+  );
+  $form['what_links_to_show_nl']['service_links_show_twitthis'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show TwitThis (NL) link'),
+    '#return_value' => 1,
+    '#default_value' => variable_get('service_links_show_twitthis', 0),
+  );
+
   $form['what_links2_to_show'] = array(
     '#type' => 'fieldset',
     '#title' => t('What search links to show'),
@@ -325,6 +361,7 @@ function service_links_render($node, $nodelink = FALSE) {
 
   $url = urlencode($url);
   $title = urlencode($node->title);
+  $teaser = urlencode($node->teaser);
 
   if (variable_get('service_links_show_delicious', 0)) {
     $links['service_links_delicious'] = theme('service_links_build_link', t('Delicious'), "http://del.icio.us/post?url=$url&title=$title", t('Bookmark this post on del.icio.us.'), 'delicious.png', $nodelink);
@@ -348,25 +385,41 @@ function service_links_render($node, $nodelink = FALSE) {
     $links['service_links_magnoliacom'] = theme('service_links_build_link', t('Magnoliacom'), "http://ma.gnolia.com/bookmarklet/add?url=$url&title=$title", t('Submit this post on ma.gnolia.com.'), 'magnoliacom.png', $nodelink);
   }
   if (variable_get('service_links_show_newsvine', 0)) {
-    $links['service_links_newsvine'] = theme('service_links_build_link', t('Newsvine'), "http://www.newsvine.com/_tools/seed&save?u=$url&h=$title", t('Submit this post on newsvine.com.'), 'newsvine.png', $nodelink);
+    $links['service_links_newsvine'] = theme('service_links_build_link', t('Newsvine'), "http://www.newsvine.com/_tools/seed&save?u=$url&h=$title", t('Plaats op newsvine.com.'), 'newsvine.png', $nodelink);
   }
   if (variable_get('service_links_show_furl', 0)) {
-    $links['service_links_furl'] = theme('service_links_build_link', t('Furl'), "http://www.furl.net/storeIt.jsp?u=$url&t=$title", t('Submit this post on furl.net.'), 'furl.png', $nodelink);
+    $links['service_links_furl'] = theme('service_links_build_link', t('Furl'), "http://www.furl.net/storeIt.jsp?u=$url&t=$title", t('Plaats op furl.net.'), 'furl.png', $nodelink);
   }
   if (variable_get('service_links_show_facebook', 0)) {
-    $links['service_links_facebook'] = theme('service_links_build_link', t('Facebook'), "http://www.facebook.com/sharer.php?u=$url&t=$title", t('Share on Facebook.'), 'facebook.png', $nodelink);
+    $links['service_links_facebook'] = theme('service_links_build_link', t('Facebook'), "http://www.facebook.com/sharer.php?u=$url&t=$title", t('Plaats op Facebook.'), 'facebook.png', $nodelink);
   }
   if (variable_get('service_links_show_google', 0)) {
-    $links['service_links_google'] = theme('service_links_build_link', t('Google'), "http://www.google.com/bookmarks/mark?op=add&bkmk=$url&title=$title", t('Bookmark this post on Google.'), 'google.png', $nodelink);
+    $links['service_links_google'] = theme('service_links_build_link', t('Google'), "http://www.google.com/bookmarks/mark?op=add&bkmk=$url&title=$title", t('Plaats op Google.'), 'google.png', $nodelink);
   }
   if (variable_get('service_links_show_yahoo', 0)) {
-    $links['service_links_yahoo'] = theme('service_links_build_link', t('Yahoo'), "http://myweb2.search.yahoo.com/myresults/bookmarklet?u=$url&t=$title", t('Bookmark this post on Yahoo.'), 'yahoo.png', $nodelink);
+    $links['service_links_yahoo'] = theme('service_links_build_link', t('Yahoo'), "http://myweb2.search.yahoo.com/myresults/bookmarklet?u=$url&t=$title", t('Plaats op Yahoo.'), 'yahoo.png', $nodelink);
   }
   if (variable_get('service_links_show_technorati', 0)) {
     $links['service_links_technorati'] = theme('service_links_build_link', t('Technorati'), "http://technorati.com/cosmos/search.html?url=$url", t('Search Technorati for links to this post.'), 'technorati.png', $nodelink);
   }
   if (variable_get('service_links_show_icerocket', 0)) {
     $links['service_links_icerocket'] = theme('service_links_build_link', t('Icerocket'), "http://blogs.icerocket.com/search?q=$url", t('Search IceRocket for links to this post.'), 'icerocket.png', $nodelink);
+  }
+  if (variable_get('service_links_show_nujij', 0)) {
+    $links['service_links_nujij'] = theme('service_links_build_link', t('Nujij'), "http://nujij.nl/jij.lynkx?t=$title&u=$url", t('Plaats op Nujij'), 'nujij.gif', $nodelink);
+  }
+  if (variable_get('service_links_show_msnreporter', 0)) {
+    $links['service_links_msnreporter'] = theme('service_links_build_link', t('MSN Reporter'), "http://reporter.nl.msn.com/?fn=contribute&Title=$title&remark=$teaser&URL=$url", t('Plaats op MSN Reporter'), 'msnreporter.gif', $nodelink);
+  }
+  if (variable_get('service_links_show_ekudos', 0)) {
+    $links['service_links_ekudos'] = theme('service_links_build_link', t('Ekudos'), "http://www.ekudos.nl/artikel/nieuw?url=$url&title=$title&desc=$teaser", t('Plaats op Ekudos'), 'ekudos.gif', $nodelink);
+  }
+  if (variable_get('service_links_show_favr', 0)) {
+    $links['service_links_favr'] = theme('service_links_build_link', t('Favr'), "http://www.favr.nl/add/?url=$url", t('Plaats op Favr.'), 'favr.png', $nodelink);
+  }
+  if (variable_get('service_links_show_twitthis', 0)) {
+    $message = check_plain(t("Reading: !title (!url)", array('!title' => $node->title, '!url' => url('node/'. $node->nid, NULL, NULL, TRUE))));
+    $links['service_links_twitthis'] = theme('service_links_build_link', t('TwitThis'), "http://twitter.com/home?status=". $message, t('TwitThis'), 'twitter.gif', $nodelink);
   }
 
   // Add your own link by modifing the link below and uncomment it.
